@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ДемонтажПро — Профессиональный демонтаж зданий и сооружений</title>
+<meta name="description" content="Демонтаж зданий, снос домов, разбор промышленных объектов под ключ. Работаем в Москве и области с 2008 года. Лицензия, гарантия, вывоз мусора.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: #1a1a1a;
+    line-height: 1.6;
+    background: #fff;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+  /* Header */
+  header {
+    background: #111;
+    color: #fff;
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+  .logo { font-size: 24px; font-weight: 800; color: #ffb800; letter-spacing: 1px; }
+  .logo span { color: #fff; }
+  nav ul { list-style: none; display: flex; gap: 28px; flex-wrap: wrap; }
+  nav a { color: #fff; text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  nav a:hover { color: #ffb800; }
+  .header-phone { color: #ffb800; font-weight: 700; font-size: 18px; text-decoration: none; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                #1a1a1a url('hero.jpg') center 82%/cover no-repeat;
+    color: #fff;
+    padding: 120px 0;
+    min-height: 680px;
+    text-align: center;
+  }
+  .hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+  .hero p { font-size: 20px; max-width: 700px; margin: 0 auto 30px; opacity: 0.95; }
+  .btn {
+    display: inline-block;
+    background: #ffb800;
+    color: #111;
+    padding: 16px 38px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .btn:hover { background: #ffa600; transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: #fff; border: 2px solid #fff; margin-left: 12px; }
+  .btn-outline:hover { background: #fff; color: #111; }
+
+  /* Sections */
+  section { padding: 80px 0; }
+  .section-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 16px;
+    font-weight: 800;
+  }
+  .section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 50px;
+    font-size: 17px;
+  }
+
+  /* Services */
+  .services { background: #f7f7f7; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+  .service-card {
+    background: #fff;
+    padding: 35px 28px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-top: 4px solid #ffb800;
+  }
+  .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .service-icon { font-size: 42px; margin-bottom: 18px; }
+  .service-card h3 { font-size: 20px; margin-bottom: 12px; }
+  .service-card p { color: #555; font-size: 15px; }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+  .about-text h2 { font-size: 34px; margin-bottom: 20px; font-weight: 800; }
+  .about-text p { margin-bottom: 16px; color: #444; }
+  .about-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 25px; }
+  .stat { text-align: center; background: #f7f7f7; padding: 22px 14px; border-radius: 8px; }
+  .stat-number { font-size: 36px; font-weight: 800; color: #ffb800; display: block; }
+  .stat-label { font-size: 14px; color: #555; }
+  .about-image {
+    height: 420px;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200') center/cover;
+    border-radius: 8px;
+  }
+
+  /* Why us */
+  .why-us { background: #111; color: #fff; }
+  .why-us .section-title { color: #fff; }
+  .why-us .section-subtitle { color: #bbb; }
+  .why-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+  .why-item { flex: 0 1 calc(33.333% - 20px); text-align: center; padding: 20px; }
+  .why-num {
+    width: 60px; height: 60px;
+    background: #ffb800; color: #111;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 800;
+    margin: 0 auto 18px;
+  }
+  .why-item h3 { font-size: 19px; margin-bottom: 10px; color: #ffb800; }
+  .why-item p { color: #ddd; font-size: 15px; }
+
+  /* Projects */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+  .project-card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+  }
+  .project-card:hover { transform: translateY(-4px); }
+  .project-img {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+  }
+  .project-info { padding: 22px; }
+  .project-info h3 { font-size: 19px; margin-bottom: 8px; }
+  .project-info p { color: #666; font-size: 14px; }
+  .project-tag {
+    display: inline-block;
+    background: #ffb800;
+    color: #111;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  /* Contact */
+  .contact { background: #f7f7f7; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+  .contact-info h3 { font-size: 24px; margin-bottom: 20px; }
+  .contact-item { display: flex; gap: 15px; margin-bottom: 22px; align-items: flex-start; }
+  .contact-icon {
+    width: 48px; height: 48px;
+    background: #ffb800;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .contact-item strong { display: block; margin-bottom: 2px; }
+  .contact-item span, .contact-item a { color: #555; text-decoration: none; }
+  .contact-item a:hover { color: #ffb800; }
+
+  form { background: #fff; padding: 35px; border-radius: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
+  form h3 { font-size: 22px; margin-bottom: 18px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; margin-bottom: 6px; font-weight: 500; font-size: 14px; }
+  .form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 15px;
+    font-family: inherit;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #ffb800; }
+  .form-group textarea { min-height: 100px; resize: vertical; }
+  form .btn { width: 100%; }
+
+  /* Footer */
+  footer {
+    background: #0a0a0a;
+    color: #ccc;
+    padding: 40px 0 20px;
+    text-align: center;
+  }
+  .footer-logo { font-size: 22px; font-weight: 800; color: #ffb800; margin-bottom: 12px; }
+  .footer-logo span { color: #fff; }
+  footer p { margin-bottom: 8px; font-size: 14px; }
+  .footer-bottom {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #222;
+    font-size: 13px;
+    color: #888;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero { padding: 70px 0; min-height: 460px; }
+    .hero h1 { font-size: 32px; }
+    .hero p { font-size: 17px; }
+    .btn-outline { margin-left: 0; margin-top: 10px; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .why-item { flex: 1 1 100%; }
+    .section-title { font-size: 28px; }
+    nav ul { gap: 16px; font-size: 14px; }
+    section { padding: 60px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">ДЕМОНТАЖ<span>ПРО</span></div>
+    <nav>
+      <ul>
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#why">Преимущества</a></li>
+        <li><a href="#projects">Объекты</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="tel:+79067690603" class="header-phone">+7 (906) 769-06-03</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Профессиональный демонтаж зданий и сооружений</h1>
+    <p>Сносим объекты любой сложности под ключ. Опытные специалисты, точные сроки и полный цикл работ — от бесплатного выезда на замер до вывоза мусора и уборки территории.</p>
+    <a href="#contact" class="btn">Получить расчёт</a>
+    <a href="#services" class="btn btn-outline">Наши услуги</a>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <h2 class="section-title">Наши услуги</h2>
+    <p class="section-subtitle">Выполняем все виды демонтажных работ с гарантией качества</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>Демонтаж квартир</h3>
+        <p>Снос стен и перегородок, демонтаж полов и стяжки, старой сантехники, проводки и отделки. Готовим квартиру к чистовому ремонту — аккуратно, с выносом и вывозом мусора.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Демонтаж домов</h3>
+        <p>Разбор частных и дачных домов из кирпича, бетона, дерева. Аккуратно, быстро и с вывозом строительного мусора.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔨</div>
+        <h3>Демонтаж конструкций</h3>
+        <p>Снос стен, перегородок, перекрытий и фундаментов любой сложности.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚜</div>
+        <h3>Вывоз мусора</h3>
+        <p>Вывозим строительный мусор и грунт на лицензированные полигоны. Подача транспорта в день обращения.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌳</div>
+        <h3>Расчистка участка</h3>
+        <p>Расчистка от мелколесья, кустарника и пней, скос травы. Подготовим участок под строительство, благоустройство или продажу.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <h3>Строительство и ремонт</h3>
+        <p>Не только сносим, но и строим: возведение домов и хозпостроек, ремонт и отделка помещений под ключ. Полный цикл — от фундамента до чистовой отделки.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-us" id="why">
+  <div class="container">
+    <h2 class="section-title">Почему выбирают нас</h2>
+    <p class="section-subtitle">5 причин доверить демонтаж именно нам</p>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-num">1</div>
+        <h3>Оценка по фото/видео</h3>
+        <p>Пришлите фото или видео объекта — назовём цену сразу, без выезда и ожидания.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">2</div>
+        <h3>Фикс-цена</h3>
+        <p>Согласованная стоимость по договору. Никаких доплат и сюрпризов в процессе.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">3</div>
+        <h3>Любая форма оплаты</h3>
+        <p>Наличные, карта или безналичный расчёт — с НДС или без НДС (актуально для юр. лиц).</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">4</div>
+        <h3>Под ключ</h3>
+        <p>От замера до уборки территории. Берём на себя весь цикл демонтажных работ.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">5</div>
+        <h3>Чистота после работ</h3>
+        <p>Вывозим весь мусор и сдаём участок, готовый к застройке.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">Наши объекты</h2>
+    <p class="section-subtitle">Примеры выполненных работ за последние годы</p>
+    <div class="projects-grid">
+      <!-- Добавьте свои объекты по этому шаблону (скопируйте блок и замените фото, тег, заголовок и описание):
+      <div class="project-card">
+        <div class="project-img" style="background-image:url('ССЫЛКА_НА_ФОТО')"></div>
+        <div class="project-info">
+          <span class="project-tag">Тип объекта</span>
+          <h3>Название объекта</h3>
+          <p>Адрес, площадь, срок выполнения.</p>
+        </div>
+      </div>
+      -->
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="section-title">Свяжитесь с нами</h2>
+    <p class="section-subtitle">Бесплатный выезд замерщика и расчёт стоимости в день обращения</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Контактная информация</h3>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <strong>Телефон</strong>
+            <a href="tel:+79067690603">+7 (906) 769-06-03</a><br>
+            <a href="tel:+79684306394">+7 (968) 430-63-94</a><br>
+            <a href="tel:+79250107333">+7 (925) 010-73-33</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <strong>Email</strong>
+            <a href="mailto:info@demontazh-pro.ru">info@demontazh-pro.ru</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <strong>Режим работы</strong>
+            <span>Пн–Сб: 8:00 – 20:00<br>Выезд на объект — 7 дней в неделю</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🗺️</div>
+          <div>
+            <strong>Регион работы</strong>
+            <span>Москва и Московская область, выезд по ЦФО — по согласованию</span>
+          </div>
+        </div>
+      </div>
+
+      <form onsubmit="event.preventDefault(); alert('Спасибо! Мы свяжемся с вами в ближайшее время.'); this.reset();">
+        <h3>Оставьте заявку</h3>
+        <div class="form-group">
+          <label for="name">Ваше имя</label>
+          <input type="text" id="name" name="name" required placeholder="Иван Иванов">
+        </div>
+        <div class="form-group">
+          <label for="phone">Телефон</label>
+          <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+        </div>
+        <div class="form-group">
+          <label for="object">Тип объекта</label>
+          <input type="text" id="object" name="object" placeholder="Например: частный дом, ангар, цех">
+        </div>
+        <div class="form-group">
+          <label for="message">Описание задачи</label>
+          <textarea id="message" name="message" placeholder="Расскажите о вашем объекте: площадь, материал стен, адрес"></textarea>
+        </div>
+        <button type="submit" class="btn">Отправить заявку</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-logo">ДЕМОНТАЖ<span>ПРО</span></div>
+    <p>Профессиональный демонтаж зданий и сооружений в Москве и области с 2008 года</p>
+    <p>+7 (906) 769-06-03 · info@demontazh-pro.ru</p>
+    <div class="footer-bottom">
+      © 2026 ДемонтажПро. Все права защищены. ИНН 7700000000 · ОГРН 1000000000000
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
